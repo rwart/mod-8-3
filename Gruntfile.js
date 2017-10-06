@@ -16,11 +16,11 @@ module.exports = function (grunt) {
       }
     },
     jshint: {
-      all: ['js/*.js']
+      all: ['js/*.js', 'Gruntfile.js']
     },
     watch: {
       scripts: {
-          files: ['js/*.js', '*.js','sass/*.sass'],
+          files: ['js/*.js', 'Gruntfile.js','sass/*.sass'],
           tasks: ['jshint', 'sass'],
           options: {
               spawn: false,
@@ -65,10 +65,13 @@ module.exports = function (grunt) {
 
   // task for images processing
   grunt.registerTask('image', ['imagemin']);
+
   // task for browserSync, jshint, sass on the run
   grunt.registerTask('wait', ['browserSync', 'watch']);
+
   // "npm test" runs these task(s)
   grunt.registerTask('test', ['jshint']);
+
   // Default task(s).
   grunt.registerTask('default', ['jshint']);
 };
