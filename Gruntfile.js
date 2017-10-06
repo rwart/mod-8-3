@@ -62,8 +62,13 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-browser-sync');
 
-  // Default task(s).
+
+  // task for images processing
   grunt.registerTask('image', ['imagemin']);
+  // task for browserSync, jshint, sass on the run
   grunt.registerTask('wait', ['browserSync', 'watch']);
+  // "npm test" runs these task(s)
+  grunt.registerTask('test', ['jshint']);
+  // Default task(s).
   grunt.registerTask('default', ['jshint']);
 };
